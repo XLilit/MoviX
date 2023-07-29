@@ -1,0 +1,135 @@
+@import "src/assets/style/mixin";
+@import "src/assets/style/variables";
+.P-video-section {
+    position: relative;
+    margin-bottom: 50px;
+    .P-section-heading {
+        font-size: 24px;
+        color: $white;
+        margin-bottom: 25px;
+    }
+    .P-videos {
+        gap: 20px;
+        overflow-x: auto;
+        padding: 20px 0;
+        &::-webkit-scrollbar {
+           
+            background-color: rgba(255, 255, 255, 0.212);
+          }
+          
+          
+          &::-webkit-scrollbar-thumb {
+            background:#0a2955;
+           ;
+          }
+        @include screen-max-width-767 {
+            gap: 10px;
+            margin-right: -20px;
+            margin-left: -20px;
+            padding:  20px;
+        }
+        .P-video-item {
+            width: 25%;
+            flex-shrink: 0;
+            @include screen-max-width-767 {
+                width: 150px;
+             
+            }
+            cursor: pointer;
+            .P-video-thumbnail {
+                margin-bottom: 15px;
+                position: relative;
+                img {
+                    width: 100%;
+                    display: block;
+                    border-radius: 12px;
+                    transition: all 0.7s ease-in-out;
+                }
+                svg {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 50px;
+                    height: 50px;
+                }
+                .triangle {
+                    stroke-dasharray: 240;
+                    stroke-dashoffset: 480;
+                    stroke: $white;
+                    transform: translateY(0);
+                    transition: all 0.7s ease-in-out;
+                }
+                .circle {
+                    stroke: $white;
+                    stroke-dasharray: 650;
+                    stroke-dashoffset: 1300;
+                    transition: all 0.5s ease-in-out;
+                }
+                &:hover {
+                    img {
+                        opacity: 0.5;
+                    }
+                    .triangle {
+                        stroke-dashoffset: 0;
+                        opacity: 1;
+                        stroke: $orange;
+                        animation: trailorPlay 0.7s ease-in-out;
+                    }
+                    .circle {
+                        stroke-dashoffset: 0;
+                        stroke: $orange;
+                    }
+                }
+            }
+            .P-video-title {
+                color: $white;
+                font-size: 16px;
+                line-height: 24px;
+               
+                @include screen-max-width-767 {
+                    font-size: 14px;
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+
+    .videoSkeleton {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+    
+        @include screen-max-width-767 {
+        gap: 10px;
+        margin-right: -20px;
+        margin-left: -20px;
+        padding: 0 20px;
+       
+        }
+        .skItem {
+            width: 25%;
+            flex-shrink: 0;
+            @include screen-max-width-767 {
+                width: 150px;
+            }
+            .thumb {
+                width: 100%;
+                aspect-ratio: 16 / 9;
+                border-radius: 12px;
+                margin-bottom: 10px;
+            }
+            .row {
+                height: 20px;
+                width: 100%;
+                border-radius: 10px;
+                margin-bottom: 10px;
+            }
+            .row2 {
+                height: 20px;
+                width: 75%;
+                border-radius: 10px;
+            }
+        }
+    }
+}
